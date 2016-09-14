@@ -4,7 +4,13 @@ import uiRouter from 'angular-ui-router';
 
 import template from './home.html';
 
-class Home {}
+class Home {
+    constructor(){
+        'ngInject';
+
+
+    }
+}
 
 const name = 'home';
 
