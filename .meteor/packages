@@ -19,3 +19,6 @@ pbastowski:angular-babel
 urigo:static-templates
 accounts-password
 dotansimha:accounts-ui-angular
+twbs:bootstrap
+http
+jcbernack:reactive-aggregate
