@@ -7,6 +7,7 @@ import { name as Signup } from '../signup/signup';
 import { name as Login } from '../login/login';
 import { name as Home } from '../home/home';
 import { name as About } from '../about/about';
+import { name as Connect } from '../connect/connect';
 
 import template from './main.html'
 
@@ -18,11 +19,12 @@ export default angular.module(name, [
   angularMeteor,
   uiRouter,
   'accounts.ui',
-  Navigation,
+//  Navigation,
   Signup,
   Login,
   Home,
-  About
+  About,
+  Connect,
 ])
 .component(name, {
   template,
@@ -44,8 +46,8 @@ function run($rootScope, $state) {
   'ngInject';
 
   $rootScope.$on('$stateChangeError', (event, toState, toParams, fromState, fromParams, error) => {
-    if(error === 'AUTH_REQUIRED') {
-      $state.go('signup');
-    }
+//    if(error === 'AUTH_REQUIRED') {
+//      $state.go('signup');
+//    }
   });
 }

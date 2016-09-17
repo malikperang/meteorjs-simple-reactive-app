@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-lg-4">
+        <table class="table table-responsive table-bordered table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Client IP</th>
+            </tr>
+            <tr ng-repeat="c in connect.conList">
+                <td>{{c._id}}</td>
+                <td>{{c.clientIP}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-lg-6  col-md-6 col-sm-12 col-xs-12 connect-panel">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">Connect this PC</h3>
+            </div>
+            <div class="panel-body">
+                <div class="text-center">
+                    <button class="btn btn-success btn-lg" ng-click="connect.init()">Connect</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
