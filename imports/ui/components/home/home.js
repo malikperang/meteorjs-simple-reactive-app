@@ -1,14 +1,50 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
+import {Signals} from '../../../api/signals';
 
 import template from './home.html';
 
 class Home {
-    constructor(){
+    constructor($scope,$state,$reactive){
         'ngInject';
+        this.$state = $state;
+
+         $reactive(this).attach($scope);
+
+         this.subscribe('signals');
 
 
+    }
+
+    redirToAbout(){
+        var today = new Date();
+         this.data = {
+            signals:1,
+            date:today
+         }
+         Meteor.call('insertSignal',this.data,function(error,result){
+                    if(error){
+                        console.log('error',error);
+                    }else{
+                        console.log('result',result);
+                    }
+                });
+    }
+
+    redirToConnect(){
+     var today = new Date();
+         this.data = {
+                    signals:0,
+                    date:today
+                 }
+                 Meteor.call('insertSignal',this.data,function(error,result){
+                            if(error){
+                                console.log('error',error);
+                            }else{
+                                console.log('result',result);
+                            }
+                        });
     }
 }
 

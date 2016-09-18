@@ -11,12 +11,12 @@ if(Meteor.isServer){
 
     Meteor.methods({
         insert:function(){
+            var  clientIP = this.connection.clientAddress;
 
             var checkEx = Connections.findOne({
-                clientIP:{"$exists":true}
+                clientIP:clientIP
             });
 
-            clientIP = this.connection.clientAddress;
             data = {
                 clientIP:clientIP
             }
@@ -24,8 +24,11 @@ if(Meteor.isServer){
             if(checkEx){
                return false;
             }else{
-                 return Connections.insert(data);
+               Connections.insert(data);
+               return true;
             }
+
+//            return false;
 
         }
     });

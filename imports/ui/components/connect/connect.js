@@ -2,16 +2,20 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import {Connections} from '../../../api/connections';
-
+import {Signals} from '../../../api/signals';
 import template from './connect.html';
 
 class Connect {
     constructor($scope,$reactive,$state){
         'ngInject';
 
-        $reactive(this).attach($scope);
-
         this.$state = $state;
+
+       $reactive(this).attach($scope);
+
+       this.subscribe('signals');
+
+       var signal = Signals.findOne();
 
         this.subscribe('connections');
 
@@ -21,19 +25,39 @@ class Connect {
                   return Connections.find({});
                }
         });
+
+//         this.autorun(() => {
+//                   signal.forEach((c) => {
+//                                 console.log(c.signals);
+//
+//                           if(c.signals == 1){
+//                                this.$state.go('about');
+//                           }
+//                    });
+//                });
     }
 
+//    console.log(this.$state);
+
+
+
     init(){
+     console.log(this.$state);
         Meteor.call('insert',function(error,result){
             if(error){
                 console.log('error',error);
             }else{
                console.log('success',result);
                if(result === false){
-                   this.$state.go('home');
+//                console.log(this.$state);
+                  this.$state.go('home');
+               }
+
+               if(result === true){
+                  this.$state.go('home');
                }
             }
-        });
+        }.bind(this));
     }
 }
 

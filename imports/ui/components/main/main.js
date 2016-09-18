@@ -2,6 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
+import {Signals} from '../../../api/signals';
 import { name as Navigation } from '../shared/navigation/navigation';
 import { name as Signup } from '../signup/signup';
 import { name as Login } from '../login/login';
@@ -11,7 +12,43 @@ import { name as Connect } from '../connect/connect';
 
 import template from './main.html'
 
-class Main {}
+class Main {
+    constructor($scope,$state,$reactive){
+        'ngInject';
+
+        this.$state = $state;
+
+        $reactive(this).attach($scope);
+
+        this.subscribe('signals');
+
+        var signal = Signals.find();
+
+        console.log(signal);
+
+        this.helpers({
+
+        });
+
+//        this.autorun(() => {
+////        console.log('signal w fetch',signal.);
+//           signal.forEach((c) => {
+//                         console.log(c.signals);
+//
+//                   if(c.signals == 1){
+//
+//                   }
+//            });
+//         console.log('dapat signal:',signal.fetch());
+
+//                console.log('dapat signal:',signal[0].signals);
+//              console.log('Autorun!!aaaaaa', this.getReactively(signal));
+//            console.log('Autorun!!', this.getReactively('myVar'));
+//          });
+
+}
+
+}
 
 const name = 'main';
 
