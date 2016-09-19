@@ -21,7 +21,7 @@ if(Meteor.isServer){
 ////            {limit:1},
 ////        );
 //    });
-
+//
     Meteor.publish('signals',function(){
         ReactiveAggregate(this,Signals,
               // Pipeline
@@ -33,12 +33,12 @@ if(Meteor.isServer){
                   }
                 },
 
-                // Stage 2
+//                 Stage 2
                 {
                   $limit: 1
                 }
 
-              ]
+              ],{clientCollection:'signals'}
         );
     });
 

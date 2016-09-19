@@ -46,6 +46,21 @@ class Home {
                             }
                         });
     }
+
+    redirToTestSignal(){
+        var today = new Date();
+                 this.data = {
+                            signals:1,
+                            date:today
+                         }
+                         Meteor.call('insertSignal',this.data,function(error,result){
+                                    if(error){
+                                        console.log('error',error);
+                                    }else{
+                                        console.log('result',result);
+                                    }
+                                });
+    }
 }
 
 const name = 'home';

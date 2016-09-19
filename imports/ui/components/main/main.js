@@ -9,6 +9,7 @@ import { name as Login } from '../login/login';
 import { name as Home } from '../home/home';
 import { name as About } from '../about/about';
 import { name as Connect } from '../connect/connect';
+import { name as TestSignal } from '../test_signals/test_signal';
 
 import template from './main.html'
 
@@ -24,11 +25,6 @@ class Main {
 
         var signal = Signals.find();
 
-        console.log(signal);
-
-        this.helpers({
-
-        });
 
 //        this.autorun(() => {
 ////        console.log('signal w fetch',signal.);
@@ -62,6 +58,7 @@ export default angular.module(name, [
   Home,
   About,
   Connect,
+  TestSignal
 ])
 .component(name, {
   template,

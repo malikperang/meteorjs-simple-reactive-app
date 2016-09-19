@@ -20,34 +20,49 @@ class Connect {
         this.subscribe('connections');
 
         this.helpers({
+               showSig(){
+                   if(signal){
+                        console.log('signal:',signal.fetch());
+                   }
+               },
+
                conList(){
                   return Connections.find({});
+               },
+
+               redir(){
+                 signal.forEach((c) => {
+                        if(c.signals == 1){
+                            console.log('one');
+                             this.$state.go('testSignal');
+                        }
+                });
                }
         });
 
         this.myVar = 10;
 
         this.s = 0;
-
-         this.autorun(() => {
-//                   console.log(signal.fetch());
-                 console.log('Autorun!!', this.getReactively('myVar'));
-                   signal.forEach((c) => {
-                            if(c.signals == 0){
-                                console.log('zero');
-                                 this.$state.go('connect');
-                            }
-
-                            if(c.signals == 1){
-                                console.log('one');
-                                 this.$state.go('about');
-                            }
-                    });
-                });
-
-                this.myVar = 50;
-    }
-
+//
+//         this.autorun(() => {
+////                   console.log(signal.fetch());
+//                 console.log('Autorun!!', this.getReactively('myVar'));
+//                   signal.forEach((c) => {
+//                            if(c.signals == 0){
+//                                console.log('zero');
+//                                 this.$state.go('connect');
+//                            }
+//
+//                            if(c.signals == 1){
+//                                console.log('one');
+//                                 this.$state.go('testSignal');
+//                            }
+//                    });
+//                });
+//
+//                this.myVar = 50;
+//    }
+}
 
     init(){
      console.log(this.$state);
