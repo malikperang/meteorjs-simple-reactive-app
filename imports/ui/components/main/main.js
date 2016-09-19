@@ -1,6 +1,8 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
+//import Chart from 'chart.js/dist/Chart.js';
+//import chartjs from 'angular-chart.js/dist/angular-chart.js';
 
 import {Signals} from '../../../api/signals';
 import { name as Navigation } from '../shared/navigation/navigation';
@@ -10,6 +12,7 @@ import { name as Home } from '../home/home';
 import { name as About } from '../about/about';
 import { name as Connect } from '../connect/connect';
 import { name as TestSignal } from '../test_signals/test_signal';
+import { name as TestingPage } from '../testingPage/testingPage';
 
 import template from './main.html'
 
@@ -58,7 +61,8 @@ export default angular.module(name, [
   Home,
   About,
   Connect,
-  TestSignal
+  TestSignal,
+  TestingPage
 ])
 .component(name, {
   template,
