@@ -14,36 +14,43 @@ class About {
 
         $reactive(this).attach($scope);
 
-         this.relevantId = 10;
+         this.subscribe('signals');
 
-        this.subscribe('signals',()=>{
-            return [ this.getReactively('signals') ];
-        });
+         var signal = Signals.find();
 
-        this.relevantId = 50; // This will cause the subscribe arguments method to run again
+//        this.relevantId = 10;
+//
+//
+//
+//        this.relevantId = 50; // This will cause the subscribe arguments method to run again
 
-        console.log(this.relevantId);
+//        console.log(this.relevantId);
 
-        var signal = Signals.find();
 
-        console.log(signal.fetch());
+
+//        console.log(signal.fetch());
 
         this.helpers({
 
         });
 
         this.autorun(() => {
+//           console.log(signal.fetch());
+
+//           this.subscribe('signals',()=>{
+//                       return [ this.getReactively('signals') ];
+//                   });
+
            signal.forEach((c) => {
                     if(c.signals == 0){
                         console.log('zero');
+                         this.$state.go('connect');
                     }
 
                     if(c.signals == 1){
                         console.log('one');
+                         this.$state.go('about');
                     }
-
-
-                    console.log(c.signals);
 
 //                   if(c.signals == 0){
 //                        this.$state.go('connect');

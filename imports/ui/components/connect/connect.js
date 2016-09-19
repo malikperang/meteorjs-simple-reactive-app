@@ -11,14 +11,13 @@ class Connect {
 
         this.$state = $state;
 
-       $reactive(this).attach($scope);
+        $reactive(this).attach($scope);
 
-       this.subscribe('signals');
+        this.subscribe('signals');
 
-       var signal = Signals.findOne();
+        var signal =  Signals.find();
 
         this.subscribe('connections');
-
 
         this.helpers({
                conList(){
@@ -26,19 +25,28 @@ class Connect {
                }
         });
 
-//         this.autorun(() => {
-//                   signal.forEach((c) => {
-//                                 console.log(c.signals);
-//
-//                           if(c.signals == 1){
-//                                this.$state.go('about');
-//                           }
-//                    });
-//                });
+        this.myVar = 10;
+
+        this.s = 0;
+
+         this.autorun(() => {
+//                   console.log(signal.fetch());
+                 console.log('Autorun!!', this.getReactively('myVar'));
+                   signal.forEach((c) => {
+                            if(c.signals == 0){
+                                console.log('zero');
+                                 this.$state.go('connect');
+                            }
+
+                            if(c.signals == 1){
+                                console.log('one');
+                                 this.$state.go('about');
+                            }
+                    });
+                });
+
+                this.myVar = 50;
     }
-
-//    console.log(this.$state);
-
 
 
     init(){
@@ -49,7 +57,6 @@ class Connect {
             }else{
                console.log('success',result);
                if(result === false){
-//                console.log(this.$state);
                   this.$state.go('home');
                }
 
