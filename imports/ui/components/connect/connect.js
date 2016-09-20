@@ -43,40 +43,24 @@ class Connect {
         this.myVar = 10;
 
         this.s = 0;
-//
-//         this.autorun(() => {
-////                   console.log(signal.fetch());
-//                 console.log('Autorun!!', this.getReactively('myVar'));
-//                   signal.forEach((c) => {
-//                            if(c.signals == 0){
-//                                console.log('zero');
-//                                 this.$state.go('connect');
-//                            }
-//
-//                            if(c.signals == 1){
-//                                console.log('one');
-//                                 this.$state.go('testSignal');
-//                            }
-//                    });
-//                });
-//
-//                this.myVar = 50;
-//    }
 }
 
     init(){
-     console.log(this.$state);
+        var state = this.$state;
         Meteor.call('insert',function(error,result){
             if(error){
-                console.log('error',error);
+                alert(error);
             }else{
-               console.log('success',result);
                if(result === false){
-                  this.$state.go('home');
+                    Meteor.setTimeout(function(){
+                        state.go('ar');
+                    },2000);
                }
 
                if(result === true){
-                  this.$state.go('home');
+                   Meteor.setTimeout(function(){
+                        state.go('ar');
+                   },2000);
                }
             }
         }.bind(this));

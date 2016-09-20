@@ -13,7 +13,8 @@ if(Meteor.isServer){
         insert:function(){
             var  clientIP = this.connection.clientAddress;
 
-            var checkEx = Connections.findOne({
+            //existing connection
+            var exc = Connections.findOne({
                 clientIP:clientIP
             });
 
@@ -21,14 +22,12 @@ if(Meteor.isServer){
                 clientIP:clientIP
             }
 
-            if(checkEx){
+            if(exc){
                return false;
             }else{
                Connections.insert(data);
                return true;
             }
-
-//            return false;
 
         }
     });

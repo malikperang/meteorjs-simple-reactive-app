@@ -10,6 +10,7 @@ import { name as Home } from '../home/home';
 import { name as About } from '../about/about';
 import { name as Connect } from '../connect/connect';
 import { name as TestSignal } from '../test_signals/test_signal';
+import { name as ARPage } from '../ar/ar';
 
 import template from './main.html'
 
@@ -24,23 +25,6 @@ class Main {
         this.subscribe('signals');
 
         var signal = Signals.find();
-
-
-//        this.autorun(() => {
-////        console.log('signal w fetch',signal.);
-//           signal.forEach((c) => {
-//                         console.log(c.signals);
-//
-//                   if(c.signals == 1){
-//
-//                   }
-//            });
-//         console.log('dapat signal:',signal.fetch());
-
-//                console.log('dapat signal:',signal[0].signals);
-//              console.log('Autorun!!aaaaaa', this.getReactively(signal));
-//            console.log('Autorun!!', this.getReactively('myVar'));
-//          });
 
 }
 
@@ -58,7 +42,8 @@ export default angular.module(name, [
   Home,
   About,
   Connect,
-  TestSignal
+  TestSignal,
+  ARPage
 ])
 .component(name, {
   template,
