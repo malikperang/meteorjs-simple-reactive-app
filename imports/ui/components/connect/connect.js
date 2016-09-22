@@ -34,7 +34,12 @@ class Connect {
                  signal.forEach((c) => {
                         if(c.signals == 1){
                             console.log('one');
-                             this.$state.go('testSignal');
+                             this.$state.go('warzone');
+                        }
+
+                        if(c.signals == 0){
+                            console.log('one');
+                             this.$state.go('ar');
                         }
                 });
                }
@@ -53,13 +58,13 @@ class Connect {
             }else{
                if(result === false){
                     Meteor.setTimeout(function(){
-                        state.go('ar');
+                        state.go('warzone');
                     },2000);
                }
 
                if(result === true){
                    Meteor.setTimeout(function(){
-                        state.go('ar');
+                        state.go('warzone');
                    },2000);
                }
             }

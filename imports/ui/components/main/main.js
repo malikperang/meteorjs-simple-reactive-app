@@ -11,6 +11,7 @@ import { name as About } from '../about/about';
 import { name as Connect } from '../connect/connect';
 import { name as TestSignal } from '../test_signals/test_signal';
 import { name as ARPage } from '../ar/ar';
+import { name as WarZone } from '../warzone/warzone';
 
 import template from './main.html'
 
@@ -25,7 +26,6 @@ class Main {
         this.subscribe('signals');
 
         var signal = Signals.find();
-
 }
 
 }
@@ -43,7 +43,8 @@ export default angular.module(name, [
   About,
   Connect,
   TestSignal,
-  ARPage
+  ARPage,
+  WarZone
 ])
 .component(name, {
   template,
