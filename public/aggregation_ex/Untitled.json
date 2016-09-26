@@ -1,0 +1,25 @@
+{ 
+    "_id" : "CsyErdz9Sd7HwBmYg", 
+    "clientIP" : "127.0.0.1", 
+    "queNum" : NumberInt(1)
+}
+{ 
+    "_id" : "LhEHXKRqZ8ydtSYe5", 
+    "clientIP" : "127.0.0.1", 
+    "queNum" : NumberInt(3)
+}
+{ 
+    "_id" : "YMvsm9jrgXF9cHSoB", 
+    "clientIP" : "127.0.0.1", 
+    "queNum" : NumberInt(6)
+}
+{ 
+    "_id" : "RtGTEhqbuyHPckDBW", 
+    "clientIP" : "127.0.0.1", 
+    "queNum" : NumberInt(2)
+}
+{ 
+    "_id" : "EBHpeTzLm98EhyZgz", 
+    "clientIP" : "127.0.0.1", 
+    "queNum" : NumberInt(5)
+}
