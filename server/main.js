@@ -4,7 +4,7 @@ import {Signals} from '../imports/api/signals';
 
 if(Meteor.isServer){
     Meteor.startup(()=>{
-       Connections.remove({});
+       // Connections.remove({});
        Signals.remove({});
     });
 }

@@ -25,3 +25,4 @@ jcbernack:reactive-aggregate
 shell-server
 momentjs:moment
 juliancwirko:s-alert
+tmeasday:publish-counts
