@@ -10,31 +10,41 @@ class ARCtrl {
     constructor($scope,$reactive,$state){
         'ngInject';
 
-        this.$state = $state;
-
         $reactive(this).attach($scope);
 
-        this.subscribe('signals');
-
-        var signal =  Signals.find();
+        this.$scope = $scope;
+        this.$state = $state;
 
         this.subscribe('connections');
+        this.subscribe('totalConnections');
+
+        this.allCons = Connections.find();
+        this.clientIP = '';
+
+        this.subscribe('signals');
+        var signal =  Signals.find();
 
         this.helpers({
-//
-//               conList(){
-//                  return Connections.find({});
-//               },
-//
-//               redir(){
-//                 signal.forEach((c) => {
-//                        if(c.signals == 1){
-//                            console.log('one');
-//                             this.$state.go('testSignal');
-//                        }
-//                });
-//               }
+            showExplode(){
+
+
+            },
+            redir(){
+                signal.forEach((c) => {
+                    if(c.signals == 1){
+                    console.log('one');
+                    this.$state.go('warzone');
+                }
+
+                if(c.signals == 0){
+                    console.log('one');
+                    this.$state.go('ar');
+                }
+            });
+            }
+
         });
+
     }
 }
 

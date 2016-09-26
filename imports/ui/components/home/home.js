@@ -1,7 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
-import {Signals} from '../../../api/signals';
+import {Signals,AttackSignals} from '../../../api/signals';
 
 import template from './home.html';
 
@@ -14,7 +14,21 @@ class Home {
 
          this.subscribe('signals');
 
+    }
 
+    attack(){
+        var today = new Date();
+        this.data = {
+            signals:2,
+            date:today
+        }
+        Meteor.call('insertAttackSignals',this.data,function(error,result){
+            if(error){
+                console.log('error',error);
+            }else{
+                console.log('result',result);
+            }
+        });
     }
 
     redirToAbout(){
