@@ -22,10 +22,10 @@ class Main {
         this.$state = $state;
 
         $reactive(this).attach($scope);
-
-        this.subscribe('signals');
-
-        var signal = Signals.find();
+        //
+        // this.subscribe('signals');
+        //
+        // var signal = Signals.find();
 }
 
 }

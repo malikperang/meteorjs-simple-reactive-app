@@ -17,7 +17,7 @@ class About {
          this.subscribe('signals');
 
          var signal = Signals.find();
-
+//
 //        this.relevantId = 10;
 //
 //
