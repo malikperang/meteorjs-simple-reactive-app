@@ -57,12 +57,13 @@ class WarZone{
             //attack
             attack(){
                 attackSignal.forEach((c) => {
-
                     if(c.signals == 2){
-                        Meteor.call('getIpAddress',function(error,result){
+
+                        this.call('getIpAddress',function(error,result){
                             if(error){
                                 alert(error);
                             }else{
+
                                 console.log('result ip adress:',result);
                                 clientIP = result;
 
@@ -71,10 +72,31 @@ class WarZone{
 
                                 console.log('max',max);
 
+                                var counter = 0;
 
                                 allCons.forEach((c)=>{
-
-
+                                    //check if client ip is match with saved client ip
+                                    if(result == c.clientIP){
+                                        if(counter == c.queNum){
+                                            console.log('show counter:',counter);
+                                            console.log('show queNum:',c.queNum);
+                                            $scope.num = 'keluar';
+                                            // return false;
+                                        }else{
+                                            //setTimeout
+                                            Meteor.setTimeout(function(){
+                                                console.log('after show');
+                                                $scope.num = 'keluar';
+                                            },10000);
+                                            // return false;
+                                        }
+                                        // for(var i=min;i<max;i++){
+                                        //     console.log(i);
+                                        // }
+                                        console.log('counter',counter);
+                                    }
+                                    
+                                    counter++;
                                 });
 
                                 // allCons.every(function(element, index) {

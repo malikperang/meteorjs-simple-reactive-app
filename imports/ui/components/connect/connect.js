@@ -6,6 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import { Counts } from 'meteor/tmeasday:publish-counts';
 import {Connections} from '../../../api/connections';
 import {Signals} from '../../../api/signals';
+
 import template from './connect.html';
 
 class Connect {

@@ -48,11 +48,14 @@ if(Meteor.isServer){
                     console.log('no record');
                 }
 
+                var min = 0;
+                var max = 100;
+
                 if(latestRecord){
 
                     console.log('has record');
                     console.log('queNum',latestRecord.queNum);
-                    for(i=0;i<11;i++){
+                    for(var i=min;i<max;i++){
                         if(i > latestRecord.queNum){
 
                             data = {
