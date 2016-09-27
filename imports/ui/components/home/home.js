@@ -31,6 +31,12 @@ class Home {
         });
     }
 
+    refreshAttack(){
+
+        Meteor.call('refreshAttack',function(error,result){
+        });
+    }
+
     redirToAbout(){
         var today = new Date();
          this.data = {

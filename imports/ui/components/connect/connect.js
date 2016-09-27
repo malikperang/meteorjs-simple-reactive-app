@@ -25,6 +25,12 @@ class Connect {
         this.subscribe('connections');
 
         this.helpers({
+            myIP: ()=>{
+                Meteor.call('getIpAddress',function(error,result){
+                    $scope.ip = result;
+                });
+            },
+
             showSig(){
                 console.log('total',Counts.get('totalDevice'));
                 $scope.totalConnection = Counts.get('totalDevice');

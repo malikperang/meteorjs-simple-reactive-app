@@ -4,8 +4,18 @@ import {Signals,AttackSignals} from '../imports/api/signals';
 
 if(Meteor.isServer){
     Meteor.startup(()=>{
-       // Connections.remove({});
-       Signals.remove({});
-       AttackSignals.remove({});
+        // SSLProxy({
+        //         port: 3004, //or 443 (normal port/requires sudo)
+        //         ssl : {
+        //             key: Assets.getText("server.key"),
+        //             cert: Assets.getText("server.crt"),
+        //
+        //     //Optional CA
+        //     //Assets.getText("ca.pem")
+        // }
+    // });
+    // Connections.remove({});
+        Signals.remove({});
+        AttackSignals.remove({});
     });
 }

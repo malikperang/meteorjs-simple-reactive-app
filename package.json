@@ -12,6 +12,7 @@
     "bcrypt": "^0.8.7",
     "bootstrap": "^3.3.7",
     "chart.js": "^2.2.2",
+    "http-proxy": "^1.15.1",
     "meteor-node-stubs": "~0.2.0"
   }
 }

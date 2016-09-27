@@ -1,28 +1,28 @@
 <div class="row">
     <div class="col-lg-4">
+        <h3>Connection List</h3>
         <table class="table table-responsive table-bordered table-hover">
             <tr>
                 <th>ID</th>
                 <th>Client IP</th>
+	            <th>Queue No.</th>
             </tr>
             <tr ng-repeat="c in connect.conList">
                 <td>{{c._id}}</td>
                 <td>{{c.clientIP}}</td>
+	            <td>{{c.queNum}}</td>
             </tr>
-	        <tr>
-		        <td>Total</td>
-		        <td></td>
-	        </tr>
         </table>
     </div>
-    <div class="col-lg-6  col-md-6 col-sm-12 col-xs-12 connect-panel">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 connect-panel">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title text-center">Connect this PC</h3>
+	            <h3>My IP :  {{ip}}</h3>
 	            <h3>Total connection :  {{totalConnection}}</h3>
             </div>
             <div class="panel-body">
                 <div class="text-center">
+                    <p>Click below button to connect to server</p>
                     <button class="btn btn-success btn-lg" ng-click="connect.init()">Connect</button>
                 </div>
             </div>
