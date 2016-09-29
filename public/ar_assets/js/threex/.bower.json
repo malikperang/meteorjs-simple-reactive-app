@@ -1,0 +1,14 @@
+{
+  "name": "threex.videotexture",
+  "homepage": "https://github.com/jeromeetienne/threex.videotexture",
+  "_release": "5b6cd48488",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "5b6cd4848834e8a41b0c3adfbe0cd75b751456b9"
+  },
+  "_source": "https://github.com/jeromeetienne/threex.videotexture.git",
+  "_target": "*",
+  "_originalSource": "threex.videotexture",
+  "_direct": true
+}

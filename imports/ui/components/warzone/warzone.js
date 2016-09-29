@@ -73,7 +73,8 @@ class WarZone{
                             allCons.forEach((c)=>{
                                 //check if client ip is match with saved client ip
                                 if(result == c.clientIP && c.queNum == counter){
-                                    $scope.num = c.queNum;
+                                    // $scope.num = c.queNum;
+                                    $state.go('plain');
                                 }
                             counter++;
                         });
@@ -84,7 +85,6 @@ class WarZone{
                 }
             });
 
-                // $scope.num = $scope.num;
             },
 
             attackAgain(){
@@ -94,7 +94,6 @@ class WarZone{
     }
 
     refresh(){
-// console.log('connections:',allCons.fetch());
         var $scope = this.$scope;
     }
 }

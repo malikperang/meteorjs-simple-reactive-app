@@ -12,6 +12,7 @@ import { name as Connect } from '../connect/connect';
 import { name as TestSignal } from '../test_signals/test_signal';
 import { name as ARPage } from '../ar/ar';
 import { name as WarZone } from '../warzone/warzone';
+import { name as PlainFirework } from '../plain_firework/plain';
 
 import template from './main.html'
 
@@ -44,7 +45,8 @@ export default angular.module(name, [
   Connect,
   TestSignal,
   ARPage,
-  WarZone
+  WarZone,
+  PlainFirework
 ])
 .component(name, {
   template,

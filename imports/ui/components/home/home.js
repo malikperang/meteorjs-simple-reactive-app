@@ -34,6 +34,11 @@ class Home {
     refreshAttack(){
 
         Meteor.call('refreshAttack',function(error,result){
+            if(error){
+                console.log('error',error);
+            }else{
+                console.log('result',result);
+            }
         });
     }
 
@@ -44,11 +49,7 @@ class Home {
             date:today
          }
          Meteor.call('insertSignal',this.data,function(error,result){
-                    if(error){
-                        console.log('error',error);
-                    }else{
-                        console.log('result',result);
-                    }
+
                 });
     }
 
