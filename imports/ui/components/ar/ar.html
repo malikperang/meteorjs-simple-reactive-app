@@ -62,7 +62,7 @@
 					//// Video 1 ////////////////////
 					/////////////////////////////////
 
-					var url1	= '/ar_assets/video/pokemon.mp4';
+					var url1	= 'ar_assets/video/pokemon.mp4';
 
 					// create the videoTexture
 					var video1Texture= new THREEx.VideoTexture(url1)
@@ -98,7 +98,7 @@
 
 						arScene.scene.add(markerRoot);
 
-						marker = markerId;
+//						marker = markerId;
 					});
 
 
@@ -142,7 +142,7 @@
 
 						arScene.scene.add(markerRoot);
 
-						marker = markerId;
+//						marker = markerId;
 					});
 
 
@@ -150,7 +150,7 @@
 					//// Video 3 ////////////////////
 					/////////////////////////////////
 
-					var url3	= '/ar_assets/video/sintel.mp4';
+					var url3	= 'ar_assets/video/sintel.mp4';
 
 					// create the videoTexture
 					var video3Texture= new THREEx.VideoTexture(url3)
@@ -186,7 +186,7 @@
 
 						arScene.scene.add(markerRoot);
 
-						marker = markerId;
+//						marker = markerId;
 					});
 
 					/////////////////////////////////
@@ -229,7 +229,7 @@
 
 						arScene.scene.add(markerRoot);
 
-						marker = markerId;
+//						marker = markerId;
 					});
 
 
@@ -251,15 +251,18 @@
 
 
 					arController.addEventListener('getMarker', function(ev) {
-						console.log('Marker ID '+ev.data.marker.idPatt);
-						if (ev.data.marker.idPatt === marker) {
+
+						if (ev.data.marker.idPatt) {
 							console.log('Yes got the marker!!');
 							video1.play();
 							video2.play();
 							video3.play();
 							video4.play();
 						}else{
+////							video1.pause();
 //							video2.pause();
+//							video3.pause();
+//							video4.pause();
 						}
 					});
 
