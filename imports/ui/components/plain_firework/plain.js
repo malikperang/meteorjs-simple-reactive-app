@@ -1,7 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
-import {Signals} from '../../../api/signals';
+import {Signals,AttackSignals} from '../../../api/signals';
 
 import template from './plain.html';
 
@@ -15,11 +15,18 @@ class Plain {
         $reactive(this).attach($scope);
 
         this.subscribe('signals');
+        this.subscribe('attackSignals');
 
         var signal = Signals.find();
+        var attackSignal = AttackSignals.find();
 
         this.helpers({
-
+            redirToWarzone(){
+                if(attackSignal.length < 0){
+                    $state.go('warzone');
+                    // console.log('Attack Signal',attackSignal.fetch());
+                }
+            }
         });
 
     }

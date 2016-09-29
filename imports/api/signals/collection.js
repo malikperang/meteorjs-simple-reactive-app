@@ -53,7 +53,7 @@ if(Meteor.isServer){
             return AttackSignals.insert(data);
         },
         refreshAttack:function(){
-            return AttackSignals.remove();
+            return AttackSignals.remove({});
         }
     });
 

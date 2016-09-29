@@ -85,7 +85,6 @@ class WarZone{
                 }
             });
 
-                // $scope.num = $scope.num;
             },
 
             attackAgain(){
@@ -95,7 +94,6 @@ class WarZone{
     }
 
     refresh(){
-// console.log('connections:',allCons.fetch());
         var $scope = this.$scope;
     }
 }
