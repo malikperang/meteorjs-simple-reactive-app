@@ -7,7 +7,7 @@ import template from './plain.html';
 
 class Plain {
 
-    constructor($scope,$state,$reactive){
+    constructor($scope,$state,$reactive,$window){
         'ngInject';
 
         this.$state = $state;
@@ -21,11 +21,25 @@ class Plain {
         var attackSignal = AttackSignals.find();
 
         this.helpers({
-            redirToWarzone(){
-                if(attackSignal.length < 0){
+            // redirToWarzone(){
+            //     if(!attackSignal){
+            //         $window.location.href = '/warzone';
+            //         // console.log('Attack Signal',attackSignal.fetch());
+            //     }
+            // },
+
+            redirToAr(){
+                signal.forEach((c) => {
+                    if(c.signals == 1){
+                    console.log('one');
                     $state.go('warzone');
-                    // console.log('Attack Signal',attackSignal.fetch());
                 }
+
+                if(c.signals == 0){
+                    console.log('one');
+                    $state.go('ar');
+                }
+            });
             }
         });
 

@@ -7,13 +7,13 @@ import { Session } from 'meteor/session'
 
 import { Counts } from 'meteor/tmeasday:publish-counts';
 import {Connections} from '../../../api/connections';
-import {Signals,AttackSignals} from '../../../api/signals';
+import {Signals} from '../../../api/signals';
 import {EmptyCannons} from '../../../api/cannonEmpty';
 
 import template from './warzone.html';
 
 class WarZone{
-    constructor($scope,$reactive,$state){
+    constructor($scope,$reactive,$state,$location,$window){
         'ngInject';
 
         $reactive(this).attach($scope);
@@ -23,14 +23,14 @@ class WarZone{
 
         this.subscribe('connections');
         this.subscribe('totalConnections');
-        this.subscribe('attackSignals');
+        // this.subscribe('attackSignals');
 
         var allCons = Connections.find();
         var clientIP = '';
 
         this.subscribe('signals');
         var signal =  Signals.find();
-        var attackSignal = AttackSignals.find();
+        // var attackSignal = AttackSignals.find();
 
         $scope.num = 'change this';
 
@@ -58,32 +58,33 @@ class WarZone{
 
             //attack
             attack(){
-                attackSignal.forEach((c) => {
+                signals.forEach((c) => {
+
+                    //attack signal
                     if(c.signals == 2){
-                    this.call('getIpAddress',function(error,result){
-                        if(error){
-                            alert(error);
-                        }else{
-                            console.log('result:',result);
-                            clientIP = result;
-                            var min = 0;
-                            var max = Counts.get('totalDevice');
-                            var counter = 1;
+                        this.call('getIpAddress',function(error,result){
+                            if(error){
+                                alert(error);
+                            }else{
+                                console.log('result:',result);
+                                clientIP = result;
+                                var min = 0;
+                                var max = Counts.get('totalDevice');
+                                var counter = 1;
 
-                            allCons.forEach((c)=>{
-                                //check if client ip is match with saved client ip
-                                if(result == c.clientIP && c.queNum == counter){
+                                allCons.forEach((c)=>{
+                                    //check if client ip is match with saved client ip
+                                    if(result == c.clientIP && c.queNum == counter){
                                     // $scope.num = c.queNum;
-                                    $state.go('plain');
+                                    // $state.go('plain');
+                                    $window.location.href = '/plain';
                                 }
-                            counter++;
+                                counter++;
+                            });
+                            }
                         });
-                        }
-                    });
-
-
-                }
-            });
+                    }
+                });
 
             },
 

@@ -1,4 +1,26 @@
 <link rel="stylesheet" href="/css/fireworks.css">
 <link rel="stylesheet" href="/demo-only/demo.css">
 <h1>Plain Firework</h1>
+<div id="fireworks-template">
+	<div id="fw" class="firework"></div>
+	<div id="fp" class="fireworkParticle">
+		<img src="/img/firework/particles.gif" alt="" /></div>
+</div>
 
+<div id="fireContainer"></div>
+
+<script>
+	jQuery(document).ready(function($) {
+		setInterval(function(){
+			createFirework(100,800,8,5,1,100,50,50,false,false);
+		},1500);
+	});
+
+	// jQuery(document).ready(function($) {
+	// 		createFirework(100,800,8,5,1,100,50,50,false,false);
+	// });
+	// $(function(){
+	// 	createFirework(100,800,8,5,1,100,50,50,false,false);
+
+	// });
+</script>

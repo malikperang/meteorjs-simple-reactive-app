@@ -16,13 +16,14 @@ class Home {
 
     }
 
-    attack(){
+    //redirect to connect page
+    redirToConnect(){
         var today = new Date();
         this.data = {
-            signals:2,
+            signals:0,
             date:today
         }
-        Meteor.call('insertAttackSignals',this.data,function(error,result){
+        Meteor.call('insertSignal',this.data,function(error,result){
             if(error){
                 console.log('error',error);
             }else{
@@ -31,17 +32,7 @@ class Home {
         });
     }
 
-    refreshAttack(){
-
-        Meteor.call('refreshAttack',function(error,result){
-            if(error){
-                console.log('error',error);
-            }else{
-                console.log('result',result);
-            }
-        });
-    }
-
+    //redirect to about page
     redirToAbout(){
         var today = new Date();
          this.data = {
@@ -53,35 +44,33 @@ class Home {
                 });
     }
 
-    redirToConnect(){
-     var today = new Date();
-         this.data = {
-                    signals:0,
-                    date:today
-                 }
-                 Meteor.call('insertSignal',this.data,function(error,result){
-                            if(error){
-                                console.log('error',error);
-                            }else{
-                                console.log('result',result);
-                            }
-                        });
+    //attack signal
+    attack(){
+        var today = new Date();
+        this.data = {
+            signals:2,
+            date:today
+        }
+        Meteor.call('insertSignal',this.data,function(error,result){
+            if(error){
+                console.log('error',error);
+            }else{
+                console.log('result',result);
+            }
+        });
     }
 
-    redirToTestSignal(){
-        var today = new Date();
-                 this.data = {
-                            signals:1,
-                            date:today
-                         }
-                         Meteor.call('insertSignal',this.data,function(error,result){
-                                    if(error){
-                                        console.log('error',error);
-                                    }else{
-                                        console.log('result',result);
-                                    }
-                                });
-    }
+    //refresh attack
+    // refreshAttack(){
+    //
+    //     Meteor.call('refreshAttack',function(error,result){
+    //         if(error){
+    //             console.log('error',error);
+    //         }else{
+    //             console.log('result',result);
+    //         }
+    //     });
+    // }
 }
 
 const name = 'home';

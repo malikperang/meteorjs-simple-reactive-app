@@ -7,7 +7,7 @@ import {Signals} from '../../../api/signals';
 import template from './ar.html';
 
 class ARCtrl {
-    constructor($scope,$reactive,$state){
+    constructor($scope,$reactive,$state,$window){
         'ngInject';
 
         $reactive(this).attach($scope);
@@ -33,7 +33,8 @@ class ARCtrl {
                 signal.forEach((c) => {
                     if(c.signals == 1){
                     console.log('one');
-                    this.$state.go('warzone');
+                    // this.$state.go('warzone');
+                    $window.location.href = '/warzone';
                 }
 
                 if(c.signals == 0){
