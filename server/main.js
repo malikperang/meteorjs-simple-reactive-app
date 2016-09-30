@@ -16,6 +16,6 @@ if(Meteor.isServer){
     // });
     // Connections.remove({});
         Signals.remove({});
-        AttackSignals.remove({});
+        // AttackSignals.remove({});
     });
 }
