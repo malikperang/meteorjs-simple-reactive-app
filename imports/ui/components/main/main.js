@@ -13,6 +13,8 @@ import { name as TestSignal } from '../test_signals/test_signal';
 import { name as ARPage } from '../ar/ar';
 import { name as WarZone } from '../warzone/warzone';
 import { name as PlainFirework } from '../plain_firework/plain';
+import { name as FirstAr } from '../firstAr/firstAr';
+import { name as SecondAr } from '../secondAr/secondAr';
 
 import template from './main.html'
 
@@ -23,10 +25,7 @@ class Main {
         this.$state = $state;
 
         $reactive(this).attach($scope);
-        //
-        // this.subscribe('signals');
-        //
-        // var signal = Signals.find();
+
 }
 
 }
@@ -46,7 +45,9 @@ export default angular.module(name, [
   TestSignal,
   ARPage,
   WarZone,
-  PlainFirework
+  PlainFirework,
+  FirstAr,
+  SecondAr
 ])
 .component(name, {
   template,

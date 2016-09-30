@@ -1,7 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
-import {Signals,AttackSignals} from '../../../api/signals';
+import {Signals} from '../../../api/signals';
 
 import template from './plain.html';
 
@@ -15,31 +15,18 @@ class Plain {
         $reactive(this).attach($scope);
 
         this.subscribe('signals');
-        this.subscribe('attackSignals');
-
         var signal = Signals.find();
-        var attackSignal = AttackSignals.find();
 
         this.helpers({
-            // redirToWarzone(){
-            //     if(!attackSignal){
-            //         $window.location.href = '/warzone';
-            //         // console.log('Attack Signal',attackSignal.fetch());
-            //     }
-            // },
-
             redirToAr(){
                 signal.forEach((c) => {
+                    if(c.signals == 0){
+                        $state.go('ar');
+                    }
                     if(c.signals == 1){
-                    console.log('one');
-                    $state.go('warzone');
-                }
-
-                if(c.signals == 0){
-                    console.log('one');
-                    $state.go('ar');
-                }
-            });
+                        $state.go('warzone');
+                    }
+                });
             }
         });
 

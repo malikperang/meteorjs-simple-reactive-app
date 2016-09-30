@@ -25,15 +25,10 @@ class ARCtrl {
         var signal =  Signals.find();
 
         this.helpers({
-            showExplode(){
-
-
-            },
             redir(){
                 signal.forEach((c) => {
                     if(c.signals == 1){
-                    console.log('one');
-                    // this.$state.go('warzone');
+
                     $window.location.href = '/warzone';
                 }
 

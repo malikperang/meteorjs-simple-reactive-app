@@ -16,8 +16,8 @@ class Home {
 
     }
 
-    //redirect to connect page
-    redirToConnect(){
+    //redirect to AR page
+    redirToAr(){
         var today = new Date();
         this.data = {
             signals:0,
@@ -32,8 +32,8 @@ class Home {
         });
     }
 
-    //redirect to about page
-    redirToAbout(){
+    //redirect to Warzone page
+    redirToWarzone(){
         var today = new Date();
          this.data = {
             signals:1,
@@ -49,6 +49,39 @@ class Home {
         var today = new Date();
         this.data = {
             signals:2,
+            date:today
+        }
+        Meteor.call('insertSignal',this.data,function(error,result){
+            if(error){
+                console.log('error',error);
+            }else{
+                console.log('result',result);
+            }
+        });
+    }
+
+
+    //redirect to AR page
+    redirToFirstAR(){
+        var today = new Date();
+        this.data = {
+            signals:3,
+            date:today
+        }
+        Meteor.call('insertSignal',this.data,function(error,result){
+            if(error){
+                console.log('error',error);
+            }else{
+                console.log('result',result);
+            }
+        });
+    }
+
+    //redirect to AR page
+    redirToSecondAR(){
+        var today = new Date();
+        this.data = {
+            signals:4,
             date:today
         }
         Meteor.call('insertSignal',this.data,function(error,result){
