@@ -39,6 +39,18 @@ class SecondARCtrl {
                         $window.location.href = '/warzone';
                     }
 
+                    if(c.signals == 2){
+                        this.$state.go('plain');
+                        // $window.location.href = '/plain';
+                    }
+
+                    if(c.signals == 3){
+                        this.$state.go('firstAr');
+                    }
+
+                    if(c.signals == 4){
+                        this.$state.go('secondAr');
+                    }
             });
             }
 
@@ -63,6 +75,6 @@ function config($stateProvider) {
     $stateProvider
         .state('secondAr', {
             url: '/disneyland',
-            template: '<secondAr></secondAr>'
+            template: '<second_ar></second_ar>'
         });
 }

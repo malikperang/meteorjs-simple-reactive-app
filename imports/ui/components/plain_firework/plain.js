@@ -26,6 +26,19 @@ class Plain {
                     if(c.signals == 1){
                         $state.go('warzone');
                     }
+
+                    if(c.signals == 2){
+                        this.$state.go('plain');
+                        // $window.location.href = '/plain';
+                    }
+
+                    if(c.signals == 3){
+                        this.$state.go('firstAr');
+                    }
+
+                    if(c.signals == 4){
+                        this.$state.go('secondAr');
+                    }
                 });
             }
         });

@@ -54,8 +54,8 @@ class WarZone{
                     }
 
                     if(c.signals == 2){
-                        // this.$state.go('plain');
-                        $window.location.href = '/plain';
+                        this.$state.go('plain');
+                        // $window.location.href = '/plain';
                     }
 
                     if(c.signals == 3){

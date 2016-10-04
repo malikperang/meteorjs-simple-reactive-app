@@ -36,7 +36,21 @@ class FirstARCtrl {
                     }
 
                     if(c.signals == 1){
+                        // this.$state.go('warzone');
                         $window.location.href = '/warzone';
+                    }
+
+                    if(c.signals == 2){
+                        this.$state.go('plain');
+                        // $window.location.href = '/plain';
+                    }
+
+                    if(c.signals == 3){
+                        this.$state.go('firstAr');
+                    }
+
+                    if(c.signals == 4){
+                        this.$state.go('secondAr');
                     }
 
             });
@@ -63,6 +77,6 @@ function config($stateProvider) {
     $stateProvider
         .state('firstAr', {
             url: '/bangkok',
-            template: '<firstAr></firstAr>'
+            template: '<first_ar></first_ar>'
         });
 }

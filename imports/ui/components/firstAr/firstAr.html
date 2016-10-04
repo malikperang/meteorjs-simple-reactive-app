@@ -9,8 +9,13 @@
 				cameraParam: 'Data/cam/camera_para.dat',
 				onSuccess: function(arScene,arController,arCamera){
 					var marker;
+					var markerZero;
+					var markerOne;
+					var markerTwo;
+					var markerThree;
+					var markerFour;
 
-					// arController.setPatternDetectionMode(artoolkit.AR_MATRIX_CODE_DETECTION);
+//					 arController.setPatternDetectionMode(artoolkit.AR_MATRIX_CODE_DETECTION);
 
 					document.body.className = arController.orientation;
 
@@ -52,15 +57,12 @@
 						console.log('clicked'+rotationTarget);
 					}, false);
 
-
 					var updateFcts = [];
 					var scene = new THREE.Scene;
 					var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100 );
 
-
 					/////////////////////////////////
-					//// Video 1 ////////////////////
-					//// Marker 2 ///////////////////
+					////////// Video 1 //////////////
 					/////////////////////////////////
 
 					var url1	= 'ar_assets/video/pokemon.mp4';
@@ -71,84 +73,78 @@
 
 					var video1 = video1Texture.video
 
-
-					updateFcts.push(function(delta, now){
+					updateFcts.push(function(delta,  now){
 						video1Texture.update(delta, now)
 					})
-
 
 					var geometryV1	= new THREE.BoxGeometry( 1, 1, 1);
 
 					var materialV1	= new THREE.MeshBasicMaterial({
 						transparent : true,
-						// opacity: 0.5,
 						map	: video1Texture.texture,
 						overdraw: true,
 						side:THREE.DoubleSide
 					});
 
-
 					var movieGeometryV1 = new THREE.PlaneBufferGeometry(  1, 1, 1 );
 					var movieScreenV1 = new THREE.Mesh(movieGeometryV1,materialV1);
 					scene.add(movieScreenV1);
 
-					arController.loadMarker('Data/NEW_PATT/patt.pikachu', function(markerId) {
+					arController.loadMarker('Data/aqm_marker/01.patt', function(markerId) {
+						console.log('marker ID for pikachu video & marker no. 1:',markerId);
+
 						var markerRoot = arController.createThreeMarker(markerId);
 
 						markerRoot.add(movieScreenV1);
 
 						arScene.scene.add(markerRoot);
 
-//						marker = markerId;
+						markerZero = markerId;
+
 					});
 
-
 					/////////////////////////////////
-					//// Video 2 ////////////////////
+					////////// Video 2 //////////////
 					/////////////////////////////////
 
 					var url2	= 'ar_assets/video/clash.mp4';
 
 					// create the videoTexture
 					var video2Texture= new THREEx.VideoTexture(url2)
-					// videoTexture.texture.magFilter = THREE.NearestFilter;
 
 					var video2 = video2Texture.video
-
 
 					updateFcts.push(function(delta, now){
 						video2Texture.update(delta, now)
 					})
 
-
 					var geometryV2	= new THREE.BoxGeometry( 1, 1, 1);
 
 					var materialV2	= new THREE.MeshBasicMaterial({
 						transparent : true,
-						// opacity: 0.5,
 						map	: video2Texture.texture,
 						overdraw: true,
 						side:THREE.DoubleSide
 					});
 
-
 					var movieGeometryV2 = new THREE.PlaneBufferGeometry(  1, 1, 1 );
 					var movieScreenV2 = new THREE.Mesh(movieGeometryV2,materialV2);
 					scene.add(movieScreenV2);
 
-					arController.loadMarker('Data/NEW_PATT/patt.01', function(markerId) {
+					arController.loadMarker('Data/aqm_marker/02.patt', function(markerId) {
+						console.log('marker ID for COC video & marker no. 2:',markerId);
+
 						var markerRoot = arController.createThreeMarker(markerId);
 
 						markerRoot.add(movieScreenV2);
 
 						arScene.scene.add(markerRoot);
 
-//						marker = markerId;
+						markerOne = markerId;
 					});
 
-
 					/////////////////////////////////
-					//// Video 3 ////////////////////
+					////////// Video 3 //////////////
 					/////////////////////////////////
 
 					var url3	= 'ar_assets/video/sintel.mp4';
@@ -159,35 +155,33 @@
 
 					var video3 = video3Texture.video
 
-
 					updateFcts.push(function(delta, now){
 						video3Texture.update(delta, now)
 					})
-
 
 					var geometryV3	= new THREE.BoxGeometry( 1, 1, 1);
 
 					var materialV3	= new THREE.MeshBasicMaterial({
 						transparent : true,
-						// opacity: 0.5,
 						map	: video3Texture.texture,
 						overdraw: true,
 						side:THREE.DoubleSide
 					});
 
-
-					var movieGeometryV3 = new THREE.PlaneBufferGeometry(  1, 1, 1 );
+					var movieGeometryV3 = new THREE.PlaneBufferGeometry( 1, 1, 1 );
 					var movieScreenV3 = new THREE.Mesh(movieGeometryV3,materialV3);
 					scene.add(movieScreenV3);
 
-					arController.loadMarker('Data/NEW_PATT/patt.Acaps', function(markerId) {
+					arController.loadMarker('Data/aqm_marker/03.patt', function(markerId) {
+						console.log('marker ID for sintel video & marker no. 3:',markerId);
+
 						var markerRoot = arController.createThreeMarker(markerId);
 
 						markerRoot.add(movieScreenV3);
 
 						arScene.scene.add(markerRoot);
 
-//						marker = markerId;
+						markerTwo = markerId;
 					});
 
 					/////////////////////////////////
@@ -196,17 +190,12 @@
 
 					var url4	= 'ar_assets/video/unity.mp4';
 
-					// create the videoTexture
 					var video4Texture= new THREEx.VideoTexture(url4)
-					// videoTexture.texture.magFilter = THREE.NearestFilter;
-
 					var video4 = video4Texture.video
-
 
 					updateFcts.push(function(delta, now){
 						video4Texture.update(delta, now)
 					})
-
 
 					var geometryV4	= new THREE.BoxGeometry( 1, 1, 1);
 
@@ -223,61 +212,115 @@
 					var movieScreenV4 = new THREE.Mesh(movieGeometryV4,materialV4);
 					scene.add(movieScreenV4);
 
-					arController.loadMarker('Data/NEW_PATT/patt.kanjitest', function(markerId) {
+					arController.loadMarker('Data/aqm_marker/04.patt', function(markerId) {
+						console.log('marker ID for unity video & marker no. 4:',markerId);
 						var markerRoot = arController.createThreeMarker(markerId);
 
 						markerRoot.add(movieScreenV4);
 
 						arScene.scene.add(markerRoot);
 
-//						marker = markerId;
+						markerThree = markerId;
 					});
 
 
+					/////////////////////////////////
+					//// Video 5 ////////////////////
+					/////////////////////////////////
 
+					var url5	= 'ar_assets/video/ppap.mp4';
 
-					// updateFcts.push(function(delta, now){
-					// 	// squareMesh.rotation.x += 1 * delta;
-					// 	// squareMesh.rotation.y += 2 * delta;
-					// });
+					var video5Texture= new THREEx.VideoTexture(url5)
+					var video5 = video5Texture.video
 
-					////////////////////////////////////////////////////////////////////////////////
-					// Camera Controls							//
-					////////////////////////////////////////////////////////////////////////////////
+					updateFcts.push(function(delta, now){
+						video5Texture.update(delta, now)
+					})
+
+					var geometryV5	= new THREE.BoxGeometry( 1, 1, 1);
+
+					var materialV5	= new THREE.MeshBasicMaterial({
+						transparent : true,
+						map	: video5Texture.texture,
+						overdraw: true,
+						side:THREE.DoubleSide
+					});
+
+					var movieGeometryV5 = new THREE.PlaneBufferGeometry(  1, 1, 1 );
+					var movieScreenV5 = new THREE.Mesh(movieGeometryV5,materialV5);
+					scene.add(movieScreenV5);
+
+					arController.loadMarker('Data/aqm_marker/05.patt', function(markerId) {
+						console.log('marker ID for ppap video & marker no. 5:',markerId);
+						var markerRoot = arController.createThreeMarker(markerId);
+
+						markerRoot.add(movieScreenV5);
+
+						arScene.scene.add(markerRoot);
+
+						markerFour = markerId;
+					});
+
+					/////////////////////////////////////////
+					////////// Camera Controls //////////////
+					/////////////////////////////////////////
+
 					var mouse	= {x : 0, y : 0}
 					document.addEventListener('mousemove', function(event){
 						mouse.x	= (event.clientX / window.innerWidth ) - 0.5
 						mouse.y	= (event.clientY / window.innerHeight) - 0.5
 					}, false)
 
-
 					arController.addEventListener('getMarker', function(ev) {
+						console.log('markerID detected:',ev.data.marker.idPatt);
 
-						if (ev.data.marker.idPatt) {
-							console.log('Yes got the marker!!');
+						if (ev.data.marker.idPatt === markerZero){
 							video1.play();
+						}else{
+							video1.pause();
+						}
+
+						if (ev.data.marker.idPatt === markerOne){
 							video2.play();
+						}else{
+							video2.pause();
+						}
+
+						if (ev.data.marker.idPatt === markerTwo){
 							video3.play();
+						}else{
+							video3.pause();
+						}
+
+						if (ev.data.marker.idPatt === markerThree){
 							video4.play();
 						}else{
-////							video1.pause();
-//							video2.pause();
-//							video3.pause();
-//							video4.pause();
+							video4.pause();
 						}
+//
+						if (ev.data.marker.idPatt === markerFour){
+							video5.play();
+						}else{
+							video5.pause();
+						}
+
+//						if (ev.data.marker.idPatt) {
+//							console.log('Yes got the marker!!');
+//							video1.play();
+//							video2.play();
+//							video3.play();
+//							video4.play();
+//						}else{
+//
+//						}
 					});
 
-
-
-
-					//////////////////////////////////////////////////////////////////////////////////
-					//		render the scene						//
-					//////////////////////////////////////////////////////////////////////////////////
+					/////////////////////////////////////////
+					////////// Scene Rendering //////////////
+					/////////////////////////////////////////
 					updateFcts.push(function(){
 						renderer.render( scene, camera );
 					});
-
-
 
 					//////////////////////////////////////////////////////////////////////////////////
 					//		loop runner							//
@@ -298,9 +341,6 @@
 
 					var init = function(){
 						arScene.process();
-
-
-
 						arScene.renderOn(renderer);
 						requestAnimationFrame(init);
 					}

@@ -1,6 +1,6 @@
 import {Meteor} from 'meteor/meteor';
 import {Connections} from '../imports/api/connections';
-import {Signals,AttackSignals} from '../imports/api/signals';
+import {Signals} from '../imports/api/signals';
 
 if(Meteor.isServer){
     Meteor.startup(()=>{
