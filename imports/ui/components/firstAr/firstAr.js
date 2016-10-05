@@ -76,7 +76,7 @@ function config($stateProvider) {
 
     $stateProvider
         .state('firstAr', {
-            url: '/bangkok',
+            url: '/firstAr',
             template: '<first_ar></first_ar>'
         });
 }

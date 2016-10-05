@@ -15,7 +15,6 @@ import { name as WarZone } from '../warzone/warzone';
 import { name as PlainFirework } from '../plain_firework/plain';
 import { name as FirstAr } from '../firstAr/firstAr';
 import { name as SecondAr } from '../secondAr/secondAr';
-import { name as Command } from '../command/command';
 
 import template from './main.html'
 
@@ -31,7 +30,7 @@ class Main {
 
 }
 
-const name = 'command';
+const name = 'main';
 
 export default angular.module(name, [
   angularMeteor,
@@ -48,8 +47,7 @@ export default angular.module(name, [
   WarZone,
   PlainFirework,
   FirstAr,
-  SecondAr,
-  Command
+  SecondAr
 ])
 .component(name, {
   template,

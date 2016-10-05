@@ -59,11 +59,12 @@ class WarZone{
                     }
 
                     if(c.signals == 3){
-                        this.$state.go('firstAr');
+                        $window.location.href = '/firstAr';
+                        // this.$state.go('firstAr');
                     }
 
                     if(c.signals == 4){
-                        this.$state.go('secondAr');
+                        $window.location.href = '/firstAr';
                     }
 
 

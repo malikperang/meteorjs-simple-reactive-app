@@ -45,7 +45,7 @@ if(Meteor.isServer){
                         date: new Date()
                     }
                     Connections.insert(data);
-                    console.log('no record');
+
                 }
 
                 var min = 0;
