@@ -6,8 +6,8 @@ THREEx.WebcamTexture	= function(){
 	var video	= document.createElement('video');
 	video.width	= 320;
 	video.height	= 240;
-	video.autoplay	= true;
-	video.loop	= true;
+	video.autoplay	= false;
+	video.loop	= false;
 	// expose video as this.video
 	this.video	= video
 

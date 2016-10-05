@@ -17,6 +17,42 @@
 
 //					 arController.setPatternDetectionMode(artoolkit.AR_MATRIX_CODE_DETECTION);
 
+					var videosUrl = [
+						'ar_assets/video/pokemon.mp4',
+						'ar_assets/video/clash.mp4',
+						'ar_assets/video/sintel.mp4',
+						'ar_assets/video/unity.mp4',
+						'ar_assets/video/ppap.mp4'
+					]
+
+					var randVidCounter = Math.floor(Math.random()*videosUrl.length);
+
+					var rVid1 = Math.floor(Math.random()*videosUrl.length);
+					var rVid2 = Math.floor(Math.random()*videosUrl.length);
+					var rVid3 = Math.floor(Math.random()*videosUrl.length);
+					var rVid4 = Math.floor(Math.random()*videosUrl.length);
+					var rVid5 = Math.floor(Math.random()*videosUrl.length);
+
+					if(rVid1 == rVid2 || rVid1 == rVid3 || rVid1 == rVid4 || rVid1 == rVid5){
+						rVid1 = Math.floor(Math.random()*videosUrl.length);
+					}
+
+					if(rVid2 == rVid1 || rVid2 == rVid3 || rVid2 == rVid4 || rVid2 == rVid5){
+						rVid2 = Math.floor(Math.random()*videosUrl.length);
+					}
+
+					if(rVid3 == rVid2 || rVid3 == rVid1 || rVid3 == rVid4 || rVid3 == rVid5){
+						rVid3 = Math.floor(Math.random()*videosUrl.length);
+					}
+
+					if(rVid4 == rVid2 || rVid4 == rVid3 || rVid4 == rVid1 || rVid4 == rVid5){
+						rVid4 = Math.floor(Math.random()*videosUrl.length);
+					}
+
+					if(rVid5 == rVid2 || rVid5 == rVid3 || rVid5 == rVid4 || rVid5 == rVid1){
+						rVid5 = Math.floor(Math.random()*videosUrl.length);
+					}
+
 					document.body.className = arController.orientation;
 
 					//init the render
@@ -65,7 +101,7 @@
 					////////// Video 1 //////////////
 					/////////////////////////////////
 
-					var url1	= 'ar_assets/video/pokemon.mp4';
+					var url1	= videosUrl[rVid1];
 
 					// create the videoTexture
 					var video1Texture= new THREEx.VideoTexture(url1)
@@ -90,7 +126,7 @@
 					var movieScreenV1 = new THREE.Mesh(movieGeometryV1,materialV1);
 					scene.add(movieScreenV1);
 
-					arController.loadMarker('Data/aqm_marker/01.patt', function(markerId) {
+					arController.loadMarker('Data/aqm_marker/patt.01', function(markerId) {
 						console.log('marker ID for pikachu video & marker no. 1:',markerId);
 
 						var markerRoot = arController.createThreeMarker(markerId);
@@ -107,7 +143,7 @@
 					////////// Video 2 //////////////
 					/////////////////////////////////
 
-					var url2	= 'ar_assets/video/clash.mp4';
+					var url2	= videosUrl[rVid2];
 
 					// create the videoTexture
 					var video2Texture= new THREEx.VideoTexture(url2)
@@ -131,7 +167,7 @@
 					var movieScreenV2 = new THREE.Mesh(movieGeometryV2,materialV2);
 					scene.add(movieScreenV2);
 
-					arController.loadMarker('Data/aqm_marker/02.patt', function(markerId) {
+					arController.loadMarker('Data/aqm_marker/patt.02', function(markerId) {
 						console.log('marker ID for COC video & marker no. 2:',markerId);
 
 						var markerRoot = arController.createThreeMarker(markerId);
@@ -147,7 +183,7 @@
 					////////// Video 3 //////////////
 					/////////////////////////////////
 
-					var url3	= 'ar_assets/video/sintel.mp4';
+					var url3 = videosUrl[rVid3];
 
 					// create the videoTexture
 					var video3Texture= new THREEx.VideoTexture(url3)
@@ -172,7 +208,7 @@
 					var movieScreenV3 = new THREE.Mesh(movieGeometryV3,materialV3);
 					scene.add(movieScreenV3);
 
-					arController.loadMarker('Data/aqm_marker/03.patt', function(markerId) {
+					arController.loadMarker('Data/aqm_marker/patt.03', function(markerId) {
 						console.log('marker ID for sintel video & marker no. 3:',markerId);
 
 						var markerRoot = arController.createThreeMarker(markerId);
@@ -188,7 +224,7 @@
 					//// Video 4 ////////////////////
 					/////////////////////////////////
 
-					var url4	= 'ar_assets/video/unity.mp4';
+					var url4 = videosUrl[rVid3];
 
 					var video4Texture= new THREEx.VideoTexture(url4)
 					var video4 = video4Texture.video
@@ -212,7 +248,7 @@
 					var movieScreenV4 = new THREE.Mesh(movieGeometryV4,materialV4);
 					scene.add(movieScreenV4);
 
-					arController.loadMarker('Data/aqm_marker/04.patt', function(markerId) {
+					arController.loadMarker('Data/aqm_marker/patt.04', function(markerId) {
 						console.log('marker ID for unity video & marker no. 4:',markerId);
 						var markerRoot = arController.createThreeMarker(markerId);
 
@@ -228,7 +264,7 @@
 					//// Video 5 ////////////////////
 					/////////////////////////////////
 
-					var url5	= 'ar_assets/video/ppap.mp4';
+					var url5 = videosUrl[rVid4];
 
 					var video5Texture= new THREEx.VideoTexture(url5)
 					var video5 = video5Texture.video
@@ -250,7 +286,7 @@
 					var movieScreenV5 = new THREE.Mesh(movieGeometryV5,materialV5);
 					scene.add(movieScreenV5);
 
-					arController.loadMarker('Data/aqm_marker/05.patt', function(markerId) {
+					arController.loadMarker('Data/aqm_marker/patt.05', function(markerId) {
 						console.log('marker ID for ppap video & marker no. 5:',markerId);
 						var markerRoot = arController.createThreeMarker(markerId);
 
@@ -260,6 +296,8 @@
 
 						markerFour = markerId;
 					});
+
+					console.log('video1:',video1);
 
 					/////////////////////////////////////////
 					////////// Camera Controls //////////////
@@ -271,38 +309,181 @@
 						mouse.y	= (event.clientY / window.innerHeight) - 0.5
 					}, false)
 
+					var videos = [
+						video1,
+						video2,
+						video3,
+						video4,
+						video5
+					];
+
 					arController.addEventListener('getMarker', function(ev) {
 						console.log('markerID detected:',ev.data.marker.idPatt);
 
 						if (ev.data.marker.idPatt === markerZero){
 							video1.play();
-						}else{
-							video1.pause();
-						}
 
-						if (ev.data.marker.idPatt === markerOne){
+						}else if(ev.data.marker.idPatt === markerOne){
 							video2.play();
-						}else{
-							video2.pause();
-						}
 
-						if (ev.data.marker.idPatt === markerTwo){
+						}else if(ev.data.marker.idPatt === markerTwo){
+
 							video3.play();
+						}else if(ev.data.marker.idPatt === markerThree){
+
+							video4.play();
+						}else if(ev.data.marker.idPatt === markerFour){
+
+							video5.play();
+
+
 						}else{
-							video3.pause();
+
+							video1.onended = function() {
+								videosUrl = [
+									'ar_assets/video/clash.mp4',
+									'ar_assets/video/pokemon.mp4',
+									'ar_assets/video/unity.mp4',
+									'ar_assets/video/sintel.mp4',
+									'ar_assets/video/ppap.mp4'
+								];
+
+
+							};
+
+							video2.onended = function() {
+								videosUrl = [
+									'ar_assets/video/clash.mp4',
+									'ar_assets/video/pokemon.mp4',
+									'ar_assets/video/unity.mp4',
+									'ar_assets/video/sintel.mp4',
+									'ar_assets/video/ppap.mp4'
+								];
+
+							};
+
+							video3.onended = function() {
+								 videosUrl = [
+									'ar_assets/video/clash.mp4',
+									'ar_assets/video/pokemon.mp4',
+									'ar_assets/video/unity.mp4',
+									'ar_assets/video/sintel.mp4',
+									'ar_assets/video/ppap.mp4'
+								];
+							};
+
+							video4.onended = function() {
+
+								videosUrl = [
+									'ar_assets/video/clash.mp4',
+									'ar_assets/video/pokemon.mp4',
+									'ar_assets/video/unity.mp4',
+									'ar_assets/video/sintel.mp4',
+									'ar_assets/video/ppap.mp4'
+								];
+							};
+
+							video5.onended = function() {
+								videosUrl = [
+									'ar_assets/video/clash.mp4',
+									'ar_assets/video/pokemon.mp4',
+									'ar_assets/video/unity.mp4',
+									'ar_assets/video/sintel.mp4',
+									'ar_assets/video/ppap.mp4'
+								];
+							};
+
+//							video1.pause();
+//							video2.pause();
+//							video3.pause();
+//							video4.pause();
+//							video5.pause();
 						}
 
-						if (ev.data.marker.idPatt === markerThree){
-							video4.play();
-						}else{
-							video4.pause();
-						}
+						//if not id detect id
+//						if (!ev.data.marker.idPatt){
+//							videosUrl = [
+//								'ar_assets/video/clash.mp4',
+//								'ar_assets/video/pokemon.mp4',
+//								'ar_assets/video/unity.mp4',
+//								'ar_assets/video/sintel.mp4',
+//								'ar_assets/video/ppap.mp4'
+//							];
+//						}
+
+//						if(ev.data.marker.idPatt !== -1){
+//							video1.play();
+//							video2.play();
+//							video3.play();
+//							video4.play();
+//						}
+
+//						if (ev.data.marker.idPatt === markerZero){
+//							video1.play();
+//							console.log('video 1 play');
+//						}else if(ev.data.marker.idPatt === markerOne){
+//							video2.play();
+//							console.log('video 2 play');
+//						}else if(ev.data.marker.idPatt === markerTwo){
+//							console.log('video 3 play');
+//							video3.play();
+//						}else if(ev.data.marker.idPatt === markerThree){
+//							console.log('video 4 play');
+//							video4.play();
+//						}else if(ev.data.marker.idPatt === markerFour){
+//							console.log('video 5 play');
+//							video5.play();
+//						}else{
+//							console.log('video pause');
+//							video1.pause();
+//							video2.pause();
+//							video3.pause();
+//							video4.pause();
+//							video5.pause();
+//						}
+//                        else{
+//							video1.pause();
+//							console.log('video 1 pause');
+//						}
 //
-						if (ev.data.marker.idPatt === markerFour){
-							video5.play();
-						}else{
-							video5.pause();
-						}
+//						if (ev.data.marker.idPatt === markerOne){
+//							video2.play();
+//							console.log('video 2 play');
+//						}
+//
+//						if(ev.data.marker.idPatt == -1){
+//							video1.pause();
+//							video2.pause();
+//							video3.pause();
+//							video4.pause();
+//						}
+//						else{
+//							video2.pause();
+//							console.log('video 2 pause');
+//						}
+//
+//						if(ev.data.marker.idPatt === markerZero && ev.data.marker.idPatt === markerOne){
+//							video1.play();
+//							video2.play();
+//						}
+//
+//						if (ev.data.marker.idPatt === markerTwo){
+//							video3.play();
+//						}else{
+//							video3.pause();
+//						}
+//
+//						if (ev.data.marker.idPatt === markerThree){
+//							video4.play();
+//						}else{
+//							video4.pause();
+//						}
+////
+//						if (ev.data.marker.idPatt === markerFour){
+//							video5.play();
+//						}else{
+//							video5.pause();
+//						}
 
 //						if (ev.data.marker.idPatt) {
 //							console.log('Yes got the marker!!');
@@ -348,10 +529,16 @@
 					init();
 					var canvas = $('canvas').attr('id', 'myCanvas');
 					var can = document.getElementById("myCanvas");
-					console.log(canvas);
 
 					can.style.width = window.innerWidth + "px";
 					can.style.height = window.innerHeight + "px";
+
+//					can.addEventListener('ended',finishHandler,false);
+//
+//					function finishHandler(e){
+//						alert('finish');
+//					}
+
 
 					// var resizeCanvas = function(){
 					// 	canvas.style.width = window.innerWidth + "px";
@@ -370,5 +557,8 @@
 			ARThreeOnLoad();
 		};
 	}
+
+
+
 
 </script>
