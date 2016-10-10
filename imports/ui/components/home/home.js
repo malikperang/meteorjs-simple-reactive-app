@@ -28,8 +28,11 @@ class Home {
                 console.log('error',error);
             }else{
                 console.log('result',result);
+                alert('Redirect Success!')
             }
         });
+
+
     }
 
     //redirect to Warzone page
@@ -40,8 +43,13 @@ class Home {
             date:today
          }
          Meteor.call('insertSignal',this.data,function(error,result){
-
-                });
+             if(error){
+                 console.log('error',error);
+             }else{
+                 console.log('result',result);
+                 // alert('Redirect Success!')
+             }
+         });
     }
 
     //attack signal
@@ -56,10 +64,10 @@ class Home {
                 console.log('error',error);
             }else{
                 console.log('result',result);
+                alert('Wait until the the explosion finish & then press OK!!');
             }
         });
     }
-
 
     //redirect to AR page
     redirToFirstAR(){
@@ -73,6 +81,7 @@ class Home {
                 console.log('error',error);
             }else{
                 console.log('result',result);
+                // alert('Redirect Success!')
             }
         });
     }
@@ -89,21 +98,46 @@ class Home {
                 console.log('error',error);
             }else{
                 console.log('result',result);
+                // alert('Redirect Success!')
             }
         });
     }
 
-    //refresh attack
-    // refreshAttack(){
-    //
-    //     Meteor.call('refreshAttack',function(error,result){
-    //         if(error){
-    //             console.log('error',error);
-    //         }else{
-    //             console.log('result',result);
-    //         }
-    //     });
-    // }
+    //redirect to GIF page
+    redirToGifPage(){
+        var today = new Date();
+        this.data = {
+            signals:5,
+            date:today
+        }
+        Meteor.call('insertSignal',this.data,function(error,result){
+            if(error){
+                console.log('error',error);
+            }else{
+                console.log('result',result);
+                // alert('Redirect Success!')
+            }
+        });
+    }
+
+    //redirect to VID page
+    redirToVidPage(){
+        var today = new Date();
+        this.data = {
+            signals:6,
+            date:today
+        }
+        Meteor.call('insertSignal',this.data,function(error,result){
+            if(error){
+                console.log('error',error);
+            }else{
+                console.log('result',result);
+                // alert('Redirect Success!')
+            }
+        });
+    }
+
+
 }
 
 const name = 'home';

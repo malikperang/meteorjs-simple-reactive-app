@@ -45,26 +45,23 @@ class WarZone{
             },
             redir(){
                 signals.forEach((c) => {
-                    if(c.signals == 0){
-                    this.$state.go('ar');
-                }
+                    // if(c.signals == 0){
+                    //     this.$state.go('ar');
+                    // }
 
-                if(c.signals == 1){
-                    this.$state.go('warzone');
-                }
+                    if(c.signals == 1){
+                        // this.$state.go('warzone');
+                        $window.location.href = '/warzone';
+                    }
 
-                if(c.signals == 2){
-                    // this.$state.go('plain');
-                    $window.location.href = '/plain';
-                }
+                    if(c.signals == 3){
+                        $window.location.href = '/firstAr';
+                        // this.$state.go('firstAr');
+                    }
 
-                if(c.signals == 3){
-                    this.$state.go('firstAr');
-                }
-
-                if(c.signals == 4){
-                    this.$state.go('secondAr');
-                }
+                    if(c.signals == 4){
+                        this.$state.go('secondAr');
+                    }
 
 
 

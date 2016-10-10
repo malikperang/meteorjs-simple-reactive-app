@@ -1,11 +1,3 @@
-<!--<link rel="stylesheet" href="/css/fireworks.css">-->
-<!--<link rel="stylesheet" href="/demo-only/demo.css">-->
-<!--<h1>Plain Firework</h1>-->
-<!--<div id="fireworks-template">-->
-	<!--<div id="fw" class="firework"></div>-->
-	<!--<div id="fp" class="fireworkParticle">-->
-		<!--<img src="/img/firework/particles.gif" alt="" /></div>-->
-<!--</div>-->
 <style type="text/css">
 	.container{
 		width: 100% !important;
@@ -19,27 +11,24 @@
 		height:100%;
 	}
 </style>
-<audio id="atom" loop>
+<audio id="atom" onended="redirect()" loop>
 	<source src="audio/Explosion2.mp3" type="audio/mpeg">
 	Your browser does not support the audio element.
 </audio>
-<!--<div id="fireContainer"></div>-->
-	<img src="img/explosion/atom2.gif" alt="" id="explosion">
+<img src="img/explosion/atom2.gif" alt="" id="explosion">
 <script>
+//	import {Signals} from '../../../api/signals';
+
 	var audio = document.getElementById("atom");
-
 	audio.play();
-	//	jQuery(document).ready(function($) {
-//		setInterval(function(){
-//			createFirework(100,800,8,5,1,100,50,50,false,false);
-//		},1500);
-//	});
 
-	// jQuery(document).ready(function($) {
-	// 		createFirework(100,800,8,5,1,100,50,50,false,false);
-	// });
-	// $(function(){
-	// 	createFirework(100,800,8,5,1,100,50,50,false,false);
+	function redirect(){
+			setTimeout(function(){
+//				window.location = '/warzone';
+			},5000)
+	}
 
-	// });
+
+
+
 </script>

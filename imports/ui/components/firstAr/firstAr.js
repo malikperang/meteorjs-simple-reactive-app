@@ -25,32 +25,19 @@ class FirstARCtrl {
         var signal =  Signals.find();
 
         this.helpers({
-            showExplode(){
-
-
-            },
             redir(){
                 signal.forEach((c) => {
-                    if(c.signals == 0){
-                        this.$state.go('ar');
-                    }
 
-                    if(c.signals == 1){
-                        // this.$state.go('warzone');
+                    if(c.signals === 1){
                         $window.location.href = '/warzone';
                     }
 
-                    if(c.signals == 2){
-                        this.$state.go('plain');
-                        // $window.location.href = '/plain';
+                    if(c.signals === 5){
+                        $window.location.href = '/gifpage';
                     }
 
-                    if(c.signals == 3){
-                        this.$state.go('firstAr');
-                    }
-
-                    if(c.signals == 4){
-                        this.$state.go('secondAr');
+                    if(c.signals === 6){
+                        $window.location.href = '/vidpage';
                     }
 
             });

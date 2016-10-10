@@ -10,7 +10,7 @@ import {Signals} from '../../../api/signals';
 import template from './connect.html';
 
 class Connect {
-    constructor($scope,$reactive,$state){
+    constructor($scope,$reactive,$state,$window){
         'ngInject';
 
         this.$state = $state;
@@ -44,14 +44,11 @@ class Connect {
             redir(){
                 signal.forEach((c) => {
                     if(c.signals == 1){
-                    console.log('one');
-                    this.$state.go('warzone');
-                }
-
-                if(c.signals == 0){
-                    console.log('one');
-                    this.$state.go('ar');
-                }
+                        this.$state.go('warzone');
+                    }
+                    if(c.signals == 1){
+                        $window.location.href = '/firstAr';
+                    }
             });
             }
         });

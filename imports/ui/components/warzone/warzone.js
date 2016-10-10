@@ -23,95 +23,45 @@ class WarZone{
 
         this.subscribe('connections');
         this.subscribe('totalConnections');
-// this.subscribe('attackSignals');
 
         var allCons = Connections.find();
         var clientIP = '';
 
         this.subscribe('signals');
         var signals =  Signals.find();
-// var attackSignal = AttackSignals.find();
 
         $scope.num = 'change this';
-
-        var result = '';
 
         this.result = '';
 
         this.helpers({
-            showExplode(){
-
-
-            },
             redir(){
                 signals.forEach((c) => {
-                    if(c.signals == 0){
-                        this.$state.go('ar');
-                    }
+                    console.log('signals:',c);
 
-                    if(c.signals == 1){
-                        this.$state.go('warzone');
-                    }
+                        if(c.signals === 2){
+                            this.$state.go('plain');
+                        }
 
-                    if(c.signals == 2){
-                        this.$state.go('plain');
-                        // $window.location.href = '/plain';
-                    }
+                        if(c.signals === 3){
+                            $window.location.href = '/firstAr';
+                        }
 
-                    if(c.signals == 3){
-                        $window.location.href = '/firstAr';
-                        // this.$state.go('firstAr');
-                    }
+                        if(c.signals === 4){
+                            $window.location.href = '/firstAr';
+                        }
 
-                    if(c.signals == 4){
-                        $window.location.href = '/firstAr';
-                    }
+                        if(c.signals === 5){
+                            $window.location.href = '/gifpage';
+                        }
 
-
-
+                        if(c.signals === 6){
+                            $window.location.href = '/vidpage';
+                        }
                 });
             },
 
-//attack
-            attack(){
-                signals.forEach((c) => {
-
-//attack signal
-                    if(c.signals == 2){
-                    this.call('getIpAddress',function(error,result){
-                        if(error){
-                            alert(error);
-                        }else{
-                            console.log('result:',result);
-                            clientIP = result;
-                            var min = 0;
-                            var max = Counts.get('totalDevice');
-                            var counter = 1;
-
-                            allCons.forEach((c)=>{
-//check if client ip is match with saved client ip
-                                if(result == c.clientIP && c.queNum == counter){
-// $scope.num = c.queNum;
-// $state.go('plain');
-                                $window.location.href = '/plain';
-                            }
-                            counter++;
-                        });
-                        }
-                    });
-                }
-            });
-
-            },
-
-            attackAgain(){
-
-            }
         });
-    }
-
-    refresh(){
-        var $scope = this.$scope;
     }
 }
 

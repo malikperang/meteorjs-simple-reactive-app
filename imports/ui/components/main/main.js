@@ -15,6 +15,9 @@ import { name as WarZone } from '../warzone/warzone';
 import { name as PlainFirework } from '../plain_firework/plain';
 import { name as FirstAr } from '../firstAr/firstAr';
 import { name as SecondAr } from '../secondAr/secondAr';
+import { name as Command } from '../command/command';
+import { name as GifPage } from '../gifpage/gifpage';
+import { name as VidPage } from '../vidpage/vidpage';
 
 import template from './main.html'
 
@@ -25,9 +28,7 @@ class Main {
         this.$state = $state;
 
         $reactive(this).attach($scope);
-
-}
-
+    }
 }
 
 const name = 'main';
@@ -36,7 +37,6 @@ export default angular.module(name, [
   angularMeteor,
   uiRouter,
   'accounts.ui',
-//  Navigation,
   Signup,
   Login,
   Home,
@@ -47,7 +47,10 @@ export default angular.module(name, [
   WarZone,
   PlainFirework,
   FirstAr,
-  SecondAr
+  SecondAr,
+  Command,
+  GifPage,
+  VidPage
 ])
 .component(name, {
   template,

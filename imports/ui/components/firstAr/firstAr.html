@@ -1,5 +1,3 @@
-<h1>First AR</h1>
-
 <script>
 	if(Meteor.isClient){
 		window.ARThreeOnLoad = function(){
@@ -18,11 +16,11 @@
 //					 arController.setPatternDetectionMode(artoolkit.AR_MATRIX_CODE_DETECTION);
 
 					var videosUrl = [
-						'ar_assets/video/pokemon.mp4',
-						'ar_assets/video/clash.mp4',
-						'ar_assets/video/sintel.mp4',
-						'ar_assets/video/unity.mp4',
-						'ar_assets/video/ppap.mp4'
+						'ar_assets/video/thai_1.mp4',
+						'ar_assets/video/thai_2.mp4',
+						'ar_assets/video/thai_3.mp4',
+						'ar_assets/video/thai_4.mp4',
+						'ar_assets/video/thai_5.mp4'
 					]
 
 					var randVidCounter = Math.floor(Math.random()*videosUrl.length);
@@ -32,7 +30,7 @@
 					var rVid3 = Math.floor(Math.random()*videosUrl.length);
 					var rVid4 = Math.floor(Math.random()*videosUrl.length);
 					var rVid5 = Math.floor(Math.random()*videosUrl.length);
-
+//
 					if(rVid1 == rVid2 || rVid1 == rVid3 || rVid1 == rVid4 || rVid1 == rVid5){
 						rVid1 = Math.floor(Math.random()*videosUrl.length);
 					}
@@ -96,6 +94,8 @@
 					var updateFcts = [];
 					var scene = new THREE.Scene;
 					var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100 );
+
+					camera.rotation.order = 'YXZ';
 
 					/////////////////////////////////
 					////////// Video 1 //////////////
@@ -320,85 +320,35 @@
 					arController.addEventListener('getMarker', function(ev) {
 						console.log('markerID detected:',ev.data.marker.idPatt);
 
-						if (ev.data.marker.idPatt === markerZero){
+//						if(ev.data.marker.idPatt){
 							video1.play();
-
-						}else if(ev.data.marker.idPatt === markerOne){
 							video2.play();
-
-						}else if(ev.data.marker.idPatt === markerTwo){
-
 							video3.play();
-						}else if(ev.data.marker.idPatt === markerThree){
-
 							video4.play();
-						}else if(ev.data.marker.idPatt === markerFour){
-
 							video5.play();
+//						}
 
-
-						}else{
-
-							video1.onended = function() {
-								videosUrl = [
-									'ar_assets/video/clash.mp4',
-									'ar_assets/video/pokemon.mp4',
-									'ar_assets/video/unity.mp4',
-									'ar_assets/video/sintel.mp4',
-									'ar_assets/video/ppap.mp4'
-								];
-
-
-							};
-
-							video2.onended = function() {
-								videosUrl = [
-									'ar_assets/video/clash.mp4',
-									'ar_assets/video/pokemon.mp4',
-									'ar_assets/video/unity.mp4',
-									'ar_assets/video/sintel.mp4',
-									'ar_assets/video/ppap.mp4'
-								];
-
-							};
-
-							video3.onended = function() {
-								 videosUrl = [
-									'ar_assets/video/clash.mp4',
-									'ar_assets/video/pokemon.mp4',
-									'ar_assets/video/unity.mp4',
-									'ar_assets/video/sintel.mp4',
-									'ar_assets/video/ppap.mp4'
-								];
-							};
-
-							video4.onended = function() {
-
-								videosUrl = [
-									'ar_assets/video/clash.mp4',
-									'ar_assets/video/pokemon.mp4',
-									'ar_assets/video/unity.mp4',
-									'ar_assets/video/sintel.mp4',
-									'ar_assets/video/ppap.mp4'
-								];
-							};
-
-							video5.onended = function() {
-								videosUrl = [
-									'ar_assets/video/clash.mp4',
-									'ar_assets/video/pokemon.mp4',
-									'ar_assets/video/unity.mp4',
-									'ar_assets/video/sintel.mp4',
-									'ar_assets/video/ppap.mp4'
-								];
-							};
-
-//							video1.pause();
-//							video2.pause();
-//							video3.pause();
-//							video4.pause();
-//							video5.pause();
-						}
+//						if (ev.data.marker.idPatt === markerZero){
+//							video1.play();
+//
+//						}else if(ev.data.marker.idPatt === markerOne){
+//							video2.play();
+//
+//						}else if(ev.data.marker.idPatt === markerTwo){
+//
+//							video3.play();
+//						}else if(ev.data.marker.idPatt === markerThree){
+//
+//							video4.play();
+//						}else if(ev.data.marker.idPatt === markerFour){
+//
+//							video5.play();
+//
+//
+//						}else{
+//
+//
+//						}
 
 						//if not id detect id
 //						if (!ev.data.marker.idPatt){

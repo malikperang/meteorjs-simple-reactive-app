@@ -24,9 +24,9 @@ http@1.2.9
 jcbernack:reactive-aggregate
 shell-server
 momentjs:moment
-juliancwirko:s-alert
 tmeasday:publish-counts
 session
 tarang:ssl
 force-ssl
 yagni:request-animation-frame
+fortawesome:fontawesome
