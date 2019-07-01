@@ -1,37 +1,25 @@
-# Meteor Angular Boilerplate
-Meteor app for finding cooks and getting that home-cooked meal you've been looking for!
+AQM Kickoff Explosion & AR Web App
+============
 
-## Installation
-```git clone```
-```cd meteor-angular-boilerplate```
-```meteor```
+The initial idea is to build an AR web app where it will play a video when a custom made marker pointed to the camera.
+The added feature is an explosion will came out when a user click the Lauch button via the control panel.
 
-## Application Structure
-This app utilizes the standard structure for >1.4 Meteor projects:
+Installation Requirements
+===========
+This application is built by the below technologies:
+- "angular": "^1.5.8",
+- "angular-chart.js": "^1.0.2",
+- "angular-meteor": "^1.3.11",
+- "uirouter/angularjs": "^0.3.1",
+- "bcrypt": "^0.8.7",
+- "bootstrap": "^3.3.7",
+- "chart.js": "^2.2.2",
+- "http-proxy": "^1.15.1",
+- "meteor-node-stubs": "~0.2.0"
 
-```bash
-cook-app/
- - client/
- --- main.css
- --- main.html
- --- main.js
- - imports/
- --- api/
- ---- collection_folder
- ------ collection.js
- ------ publish.js
- ------ methods.js
- --- ui/
- ---- components/
- ------ component_folder
- -------- component.css
- -------- component.html
- -------- component.js
- - node_modules/
- - server/
-```
 
-Most application logic will go into individual components built with Angular in the ```imports/ui/components``` directory
-
-## App Entry Point
-The app is bootstrapped via the ```client/main.js``` and the ```client/main.html```. Typically they are utilized only for starting the app, avoid putting logic or extra mark up in these files.
+How to install
+==============
+- Clone this repo
+- run npm install
+- run meteor
